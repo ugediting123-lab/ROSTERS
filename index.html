@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew Haven</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --brown:#6f4e37;
+    --cream:#f5efe6;
+    --dark:#3e2723;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:var(--cream);
+    color:var(--dark);
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ===== NAVBAR ===== */
+header{
+    background:var(--cream);
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    font-weight:700;
+    font-size:22px;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--dark);
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:var(--brown);
+}
+
+.menu-toggle{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover;
+    display:flex;
+    align-items:center;
+    color:white;
+    padding-top:80px;
+}
+
+.hero-content{
+    max-width:550px;
+}
+
+.hero h1{
+    font-size:48px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero p{
+    margin-bottom:25px;
+}
+
+.btn{
+    background:var(--brown);
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#5a3e2b;
+}
+
+/* ===== FEATURES ===== */
+section{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:30px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:70px;
+    margin-bottom:15px;
+}
+
+/* ===== WHY SECTION ===== */
+.why{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.why img{
+    width:100%;
+    border-radius:20px;
+}
+
+/* ===== GALLERY ===== */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:var(--dark);
+    color:white;
+    text-align:center;
+    padding:30px 0;
+}
+
+.socials{
+    margin-top:15px;
+}
+
+.socials i{
+    margin:0 10px;
+    cursor:pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .why{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    nav{
+        position:absolute;
+        top:70px;
+        right:0;
+        background:var(--cream);
+        flex-direction:column;
+        width:200px;
+        padding:20px;
+        display:none;
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container navbar">
+    <div class="logo">ROASTERS</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav">
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container hero-content">
+    <h1>Savor the Perfect Brew</h1>
+    <p>Experience handcrafted coffee made from premium roasted beans in a cozy modern space.</p>
+    <button class="btn">Explore Menu</button>
+</div>
+</section>
+
+<section>
+<div class="container">
+    <h2 class="section-title">Our Special</h2>
+    <div class="features">
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/924/924514.png">
+            <h3>Espresso</h3>
+            <p>Rich and bold Italian style coffee.</p>
+        </div>
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3050/3050525.png">
+            <h3>Latte</h3>
+            <p>Smooth milk coffee with creamy texture.</p>
+        </div>
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2935/2935307.png">
+            <h3>Cold Brew</h3>
+            <p>Slow brewed cold coffee with smooth taste.</p>
+        </div>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container why">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+    <div>
+        <h2>Why Choose Us?</h2>
+        <p style="margin:20px 0;">We serve premium quality coffee in a relaxing modern atmosphere designed for coffee lovers.</p>
+        <button class="btn">Visit Us</button>
+    </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+    <h2 class="section-title">Gallery</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187">
+        <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096">
+    </div>
+</div>
+</section>
+
+<footer>
+    <p>© 2025 Brew Haven | All Rights Reserved</p>
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("nav").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
